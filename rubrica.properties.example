@@ -1,0 +1,9 @@
+# Configurazione Rubrica (opzionale).
+# Copiare come "rubrica.properties" accanto a Rubrica.jar per personalizzare.
+# Se il file e' assente, valgono i default.
+
+# Backend di persistenza: file | mysql   (default: file)
+persistence.type=file
+
+# Percorso del file dati per il backend "file"   (default: informazioni.txt)
+persistence.file.path=informazioni.txt
