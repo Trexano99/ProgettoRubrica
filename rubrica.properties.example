@@ -12,3 +12,7 @@ persistence.file.path=informazioni.txt
 
 # Percorso della cartella dati per il backend "directory"   (default: informazioni)
 persistence.directory.path=informazioni
+
+# Percorso del file degli utenti che accedono al software   (default: utenti.txt)
+# Vale sia con il backend "file" sia con "directory".
+persistence.utenti.path=utenti.txt

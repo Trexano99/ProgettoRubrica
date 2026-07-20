@@ -33,6 +33,10 @@ Doppio click su `Rubrica.jar`, oppure:
 java -jar Rubrica.jar
 ```
 
+All'avvio compare la finestra di login: la rubrica si apre solo dopo un accesso
+riuscito. Al primo avvio non esiste ancora nessun utente, quindi va creato con
+il bottone **Nuovo utente**.
+
 I contatti vengono salvati in `informazioni.txt`, nella stessa cartella del jar.
 Al primo avvio il file non esiste ancora e la rubrica parte vuota.
 
@@ -64,6 +68,7 @@ Il backend e' scelto da `rubrica.properties` (opzionale, accanto al jar):
 persistence.type=file        # file | directory | mysql (previsto, non ancora implementato)
 persistence.file.path=informazioni.txt
 persistence.directory.path=informazioni
+persistence.utenti.path=utenti.txt
 ```
 
 Senza il file valgono i default. Vedi `rubrica.properties.example`.
@@ -104,7 +109,7 @@ EXTRA" suggerite dal testo. Ogni extra vive su un proprio branch, a partire da
 |---|---|---|
 | `lavoroBase` | progetto base, requisiti obbligatori | completato |
 | `salvataggioSingoliFile` | salvataggio in cartella, un file per contatto, con suffisso numerico per gli omonimi | completato |
-| `utenze` | classe `Utente`, finestra di login, registrazione di un nuovo utente | previsto |
+| `utenze` | classe `Utente`, finestra di login, registrazione di un nuovo utente | completato |
 | `toolbarAdd` | `JToolBar` con icone, cambio utente e modifica dell'utenza corrente | previsto |
 | `databaseIntegration` | persistenza su database MySQL via JDBC | previsto |
 
@@ -114,3 +119,26 @@ Nuovo backend `DirectoryRubricaRepository`, selezionabile con
 `persistence.type=directory`: vedi [Backend `directory`](#backend-directory-un-file-per-contatto).
 Il backend su file singolo resta disponibile e resta il default, quindi il
 comportamento richiesto dai requisiti obbligatori e' invariato.
+
+### `utenze`
+
+Classe di dominio `Utente` (username + password) e finestra di login come unica
+finestra mostrata all'avvio: la finestra principale si apre solo dopo un accesso
+riuscito, altrimenti compare il messaggio di login errato. Il titolo della
+finestra principale riporta l'utente collegato.
+
+Oltre a quanto chiesto dai requisiti, il login ha un bottone **Nuovo utente**
+che apre una finestra di registrazione (username, password, conferma password).
+Serve anche al primo avvio, quando nessun utente esiste ancora.
+
+Gli utenti sono persistiti in `utenti.txt`, una riga per utente:
+
+```
+username;salt:digest
+```
+
+Le password **non** vengono salvate in chiaro. Ogni password ha un salt casuale
+di 16 byte e viene trasformata in un digest SHA-256 ripetuto 10.000 volte
+(`PasswordHash`); il salt rende diversi i digest di due utenti con la stessa
+password, le iterazioni rendono piu' costoso un attacco a forza bruta. La
+verifica al login confronta i digest a tempo costante.

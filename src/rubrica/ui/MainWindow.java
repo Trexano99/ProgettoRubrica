@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import rubrica.domain.Persona;
+import rubrica.domain.Utente;
 import rubrica.model.Rubrica;
 
 /**
@@ -25,9 +26,11 @@ public class MainWindow extends JFrame {
 
     /**
      * @param rubrica il model gia' caricato da mostrare
+     * @param utente  l'utente che ha effettuato l'accesso, mostrato nel titolo;
+     *                {@code null} se l'applicazione gira senza autenticazione
      */
-    public MainWindow(Rubrica rubrica) {
-        super("Rubrica");
+    public MainWindow(Rubrica rubrica, Utente utente) {
+        super(utente == null ? "Rubrica" : "Rubrica - " + utente.getUsername());
         this.rubrica = rubrica;
         this.tableModel = new PersonaTableModel(rubrica);
         this.tabella = new JTable(tableModel);
