@@ -26,6 +26,12 @@ class AppConfigTest {
     }
 
     @Test
+    void tipoDirectory() {
+        assertEquals(PersistenceType.DIRECTORY,
+                conProprieta("persistence.type", "directory").getPersistenceType());
+    }
+
+    @Test
     void tipoMysql() {
         assertEquals(PersistenceType.MYSQL,
                 conProprieta("persistence.type", "mysql").getPersistenceType());

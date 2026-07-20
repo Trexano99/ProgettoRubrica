@@ -29,6 +29,12 @@ class RepositoryFactoryTest {
     }
 
     @Test
+    void tipoDirectoryCreaRepositorySuCartella() {
+        RubricaRepository repo = RepositoryFactory.create(configConTipo("directory"));
+        assertTrue(repo instanceof DirectoryRubricaRepository);
+    }
+
+    @Test
     void tipoMysqlNonAncoraSupportato() {
         assertThrows(UnsupportedOperationException.class,
                 () -> RepositoryFactory.create(configConTipo("mysql")));

@@ -13,7 +13,8 @@ import java.util.Properties;
  *
  * <p>Chiavi riconosciute:</p>
  * <ul>
- *   <li>{@code persistence.type} = {@code file} | {@code mysql} (default {@code file})</li>
+ *   <li>{@code persistence.type} = {@code file} | {@code directory} | {@code mysql}
+ *       (default {@code file})</li>
  * </ul>
  */
 public class AppConfig {

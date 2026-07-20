@@ -5,8 +5,11 @@ package rubrica.config;
  */
 public enum PersistenceType {
 
-    /** Salvataggio su file di testo ({@code informazioni.txt}). */
+    /** Salvataggio su un singolo file di testo ({@code informazioni.txt}). */
     FILE,
+
+    /** Salvataggio su cartella ({@code informazioni}), un file per contatto. */
+    DIRECTORY,
 
     /** Salvataggio su database MySQL (da implementare). */
     MYSQL;
@@ -26,6 +29,8 @@ public enum PersistenceType {
         switch (valore.trim().toLowerCase()) {
             case "mysql":
                 return MYSQL;
+            case "directory":
+                return DIRECTORY;
             case "file":
                 return FILE;
             default:

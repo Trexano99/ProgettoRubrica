@@ -2,8 +2,13 @@
 # Copiare come "rubrica.properties" accanto a Rubrica.jar per personalizzare.
 # Se il file e' assente, valgono i default.
 
-# Backend di persistenza: file | mysql   (default: file)
-persistence.type=file
+# Backend di persistenza: file | directory | mysql   (default: file)
+#   file      -> un unico file di testo con tutti i contatti
+#   directory -> una cartella con un file per contatto (Nome-Cognome.txt)
+persistence.type=directory
 
 # Percorso del file dati per il backend "file"   (default: informazioni.txt)
 persistence.file.path=informazioni.txt
+
+# Percorso della cartella dati per il backend "directory"   (default: informazioni)
+persistence.directory.path=informazioni
