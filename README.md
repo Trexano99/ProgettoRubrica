@@ -110,7 +110,7 @@ EXTRA" suggerite dal testo. Ogni extra vive su un proprio branch, a partire da
 | `lavoroBase` | progetto base, requisiti obbligatori | completato |
 | `salvataggioSingoliFile` | salvataggio in cartella, un file per contatto, con suffisso numerico per gli omonimi | completato |
 | `utenze` | classe `Utente`, finestra di login, registrazione di un nuovo utente | completato |
-| `toolbarAdd` | `JToolBar` con icone, cambio utente e modifica dell'utenza corrente | previsto |
+| `toolbarAdd` | `JToolBar` con icone, cambio utente e modifica dell'utenza corrente | completato |
 | `databaseIntegration` | persistenza su database MySQL via JDBC | previsto |
 
 ### `salvataggioSingoliFile`
@@ -142,3 +142,35 @@ di 16 byte e viene trasformata in un digest SHA-256 ripetuto 10.000 volte
 (`PasswordHash`); il salt rende diversi i digest di due utenti con la stessa
 password, le iterazioni rendono piu' costoso un attacco a forza bruta. La
 verifica al login confronta i digest a tempo costante.
+
+### `toolbarAdd`
+
+La finestra principale non tiene piu' i bottoni in basso ma una `JToolBar`
+(`BarraStrumenti`) in alto, con icona sopra e testo sotto. Le finestre modali
+(login, registrazione, editor persona, profilo utente) restano con i bottoni in
+basso, dove sono piu' immediati.
+
+| Finestra | Disposizione | Azioni |
+|---|---|---|
+| principale | toolbar in alto | Nuovo, Modifica, Elimina, Utenza, Cambia utente |
+| editor persona | bottoni in basso | Salva, Annulla |
+| login | bottoni in basso | LOGIN, Nuovo utente |
+| registrazione | bottoni in basso | Registra, Annulla |
+| profilo utente | bottoni in basso | Salva, Annulla |
+
+Le icone della toolbar sono disegnate a runtime con Java2D (`Icone`) invece di
+essere caricate da file immagine: il jar resta autosufficiente, senza risorse da
+ritrovare a classpath.
+
+Oltre a quanto chiesto dai requisiti, la barra della finestra principale ha due
+azioni sull'utenza:
+
+- **Utenza** apre `ProfiloUtenteDialog`, che cambia username e/o password
+  dell'utente collegato. Serve la password attuale per confermare, e i campi
+  della nuova password possono restare vuoti se si vuole cambiare solo lo
+  username. L'utente non viene modificato sul posto: si costruisce un nuovo
+  `Utente` con lo stesso id, cosi' un errore di salvataggio non lascia in
+  memoria dati gia' cambiati.
+- **Cambia utente** chiede conferma, chiude la finestra e riporta al login. La
+  rubrica viene ricaricata da capo, quindi la nuova sessione non eredita nulla
+  dalla precedente.

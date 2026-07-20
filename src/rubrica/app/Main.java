@@ -18,6 +18,10 @@ import rubrica.ui.MainWindow;
  * <p>La finestra principale viene costruita e mostrata solo dopo un accesso
  * riuscito; se l'utente chiude il login senza autenticarsi, l'applicazione
  * termina senza aprire nulla.</p>
+ *
+ * <p>Il bottone Cambia utente della finestra principale riporta al login
+ * riavviando la stessa sequenza: la rubrica viene ricaricata da capo, cosi' che
+ * il nuovo utente non erediti nulla dalla sessione precedente.</p>
  */
 public final class Main {
 
@@ -33,13 +37,26 @@ public final class Main {
         GestoreUtenti gestoreUtenti = new GestoreUtenti(RepositoryFactory.createUtenti(config));
         gestoreUtenti.load();
 
-        SwingUtilities.invokeLater(() -> {
-            Optional<Utente> utente = new LoginWindow(gestoreUtenti).showDialog();
-            if (utente.isEmpty()) 
-                System.exit(0);
-            Rubrica rubrica = new Rubrica(RepositoryFactory.create(config));
-            rubrica.load();
-            new MainWindow(rubrica, utente.get()).setVisible(true);
-        });
+        SwingUtilities.invokeLater(() -> avviaSessione(config, gestoreUtenti));
+    }
+
+    /**
+     * Mostra il login e, se l'accesso riesce, apre la finestra principale.
+     *
+     * @param config        la configurazione da cui ricavare la persistenza
+     * @param gestoreUtenti il model degli utenti, condiviso fra le sessioni
+     */
+    private static void avviaSessione(AppConfig config, GestoreUtenti gestoreUtenti) {
+        Optional<Utente> utente = new LoginWindow(gestoreUtenti).showDialog();
+        if (utente.isEmpty())
+            System.exit(0);
+        Rubrica rubrica = new Rubrica(RepositoryFactory.create(config));
+        rubrica.load();
+        MainWindow finestra = new MainWindow(rubrica, gestoreUtenti, utente.get());
+        // invokeLater e non una chiamata diretta: la sessione successiva parte
+        // dopo che questa finestra si e' davvero chiusa, senza annidare login.
+        finestra.setOnCambiaUtente(() ->
+                SwingUtilities.invokeLater(() -> avviaSessione(config, gestoreUtenti)));
+        finestra.setVisible(true);
     }
 }
