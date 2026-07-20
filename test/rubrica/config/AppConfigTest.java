@@ -48,4 +48,37 @@ class AppConfigTest {
         assertEquals(PersistenceType.FILE,
                 conProprieta("persistence.type", "cassandra").getPersistenceType());
     }
+
+    @Test
+    void mysqlSenzaProprietaUsaIDefault() {
+        ImpostazioniMysql m = new AppConfig(new Properties()).getMysql();
+        assertEquals("localhost", m.getHost());
+        assertEquals(3306, m.getPort());
+        assertEquals("rubrica", m.getDatabase());
+        assertEquals("root", m.getUser());
+        assertEquals("", m.getPassword());
+    }
+
+    @Test
+    void mysqlLeggeLeProprietaConfigurate() {
+        Properties props = new Properties();
+        props.setProperty("persistence.mysql.host", "10.0.0.5");
+        props.setProperty("persistence.mysql.port", "3307");
+        props.setProperty("persistence.mysql.database", "contatti");
+        props.setProperty("persistence.mysql.user", "app");
+        props.setProperty("persistence.mysql.password", "segreta");
+
+        ImpostazioniMysql m = new AppConfig(props).getMysql();
+        assertEquals("10.0.0.5", m.getHost());
+        assertEquals(3307, m.getPort());
+        assertEquals("contatti", m.getDatabase());
+        assertEquals("app", m.getUser());
+        assertEquals("segreta", m.getPassword());
+    }
+
+    @Test
+    void portaNonNumericaRicadeSulDefault() {
+        assertEquals(3306,
+                conProprieta("persistence.mysql.port", "tremila").getMysql().getPort());
+    }
 }
