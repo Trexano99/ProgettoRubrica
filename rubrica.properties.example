@@ -5,6 +5,7 @@
 # Backend di persistenza: file | directory | mysql   (default: file)
 #   file      -> un unico file di testo con tutti i contatti
 #   directory -> una cartella con un file per contatto (Nome-Cognome.txt)
+#   mysql     -> database MySQL via JDBC (contatti e utenti su tabelle)
 persistence.type=directory
 
 # Percorso del file dati per il backend "file"   (default: informazioni.txt)
@@ -16,3 +17,12 @@ persistence.directory.path=informazioni
 # Percorso del file degli utenti che accedono al software   (default: utenti.txt)
 # Vale sia con il backend "file" sia con "directory".
 persistence.utenti.path=utenti.txt
+
+# --- Parametri del backend "mysql" ---------------------------------------
+# Usati solo con persistence.type=mysql. Ogni installazione punta al proprio
+# server MySQL: qui vanno le credenziali del sistema di chi esegue il jar.
+persistence.mysql.host=localhost
+persistence.mysql.port=3306
+persistence.mysql.database=rubrica
+persistence.mysql.user=root
+persistence.mysql.password=
