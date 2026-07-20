@@ -35,9 +35,9 @@ class RepositoryFactoryTest {
     }
 
     @Test
-    void tipoMysqlNonAncoraSupportato() {
-        assertThrows(UnsupportedOperationException.class,
-                () -> RepositoryFactory.create(configConTipo("mysql")));
+    void tipoMysqlCreaRepositorySuDatabase() {
+        RubricaRepository repo = RepositoryFactory.create(configConTipo("mysql"));
+        assertTrue(repo instanceof MysqlRubricaRepository);
     }
 
     @Test
@@ -51,8 +51,8 @@ class RepositoryFactoryTest {
     }
 
     @Test
-    void utentiSuMysqlNonAncoraSupportati() {
-        assertThrows(UnsupportedOperationException.class,
-                () -> RepositoryFactory.createUtenti(configConTipo("mysql")));
+    void utentiSuMysqlVannoSuDatabase() {
+        assertTrue(RepositoryFactory.createUtenti(configConTipo("mysql"))
+                instanceof MysqlUtenteRepository);
     }
 }

@@ -25,8 +25,6 @@ public final class RepositoryFactory {
      *
      * @param config la configurazione dell'applicazione
      * @return il repository da usare
-     * @throws UnsupportedOperationException se il tipo configurato non e' ancora
-     *         implementato (es. {@code mysql})
      */
     public static RubricaRepository create(AppConfig config) {
         switch (config.getPersistenceType()) {
@@ -37,8 +35,8 @@ public final class RepositoryFactory {
                 return new DirectoryRubricaRepository(
                         new File(config.get(KEY_DIRECTORY_PATH, DEFAULT_DIRECTORY_PATH)));
             case MYSQL:
-                throw new UnsupportedOperationException(
-                        "Persistenza MySQL non ancora implementata");
+                return new MysqlRubricaRepository(
+                        new DriverManagerConnessioni(config.getMysql()));
             default:
                 throw new UnsupportedOperationException(
                         "Tipo di persistenza non gestito: " + config.getPersistenceType());
@@ -54,8 +52,6 @@ public final class RepositoryFactory {
      *
      * @param config la configurazione dell'applicazione
      * @return il repository degli utenti da usare
-     * @throws UnsupportedOperationException se il tipo configurato non e' ancora
-     *         implementato (es. {@code mysql})
      */
     public static UtenteRepository createUtenti(AppConfig config) {
         switch (config.getPersistenceType()) {
@@ -64,8 +60,8 @@ public final class RepositoryFactory {
                 return new FileUtenteRepository(
                         new File(config.get(KEY_UTENTI_PATH, DEFAULT_UTENTI_PATH)));
             case MYSQL:
-                throw new UnsupportedOperationException(
-                        "Persistenza MySQL non ancora implementata");
+                return new MysqlUtenteRepository(
+                        new DriverManagerConnessioni(config.getMysql()));
             default:
                 throw new UnsupportedOperationException(
                         "Tipo di persistenza non gestito: " + config.getPersistenceType());
