@@ -39,4 +39,20 @@ class RepositoryFactoryTest {
         assertThrows(UnsupportedOperationException.class,
                 () -> RepositoryFactory.create(configConTipo("mysql")));
     }
+
+    @Test
+    void gliUtentiVannoSuFileSiaConFileSiaConDirectory() {
+        assertTrue(RepositoryFactory.createUtenti(configConTipo(null))
+                instanceof FileUtenteRepository);
+        assertTrue(RepositoryFactory.createUtenti(configConTipo("file"))
+                instanceof FileUtenteRepository);
+        assertTrue(RepositoryFactory.createUtenti(configConTipo("directory"))
+                instanceof FileUtenteRepository);
+    }
+
+    @Test
+    void utentiSuMysqlNonAncoraSupportati() {
+        assertThrows(UnsupportedOperationException.class,
+                () -> RepositoryFactory.createUtenti(configConTipo("mysql")));
+    }
 }
