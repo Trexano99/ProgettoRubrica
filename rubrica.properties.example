@@ -19,10 +19,6 @@ persistence.directory.path=informazioni
 persistence.utenti.path=utenti.txt
 
 # --- Parametri del backend "mysql" ---------------------------------------
-# Usati solo con persistence.type=mysql. Ogni installazione punta al proprio
-# server MySQL: qui vanno le credenziali del sistema di chi esegue il jar.
-persistence.mysql.host=localhost
-persistence.mysql.port=3306
-persistence.mysql.database=rubrica
-persistence.mysql.user=root
-persistence.mysql.password=
+# Le credenziali del server MySQL NON stanno qui: sono nel file dedicato
+# credenziali_database.properties (vedi credenziali_database.properties.example),
+# cosi' che l'utente finale sostituisca solo quel file durante l'installazione.

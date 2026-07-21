@@ -7,8 +7,8 @@
 --
 --     mysql -u root -p < schema_database.sql
 --
--- Il nome del database (rubrica) deve coincidere con persistence.mysql.database
--- in rubrica.properties.
+-- Il nome del database (rubrica) deve coincidere con db.database
+-- in credenziali_database.properties.
 -- ---------------------------------------------------------------------------
 
 CREATE DATABASE IF NOT EXISTS rubrica
