@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"rubrica.app"},{"l":"rubrica.config"},{"l":"rubrica.domain"},{"l":"rubrica.model"},{"l":"rubrica.persistence"},{"l":"rubrica.ui"}]

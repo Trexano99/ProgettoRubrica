@@ -29,8 +29,30 @@ class RepositoryFactoryTest {
     }
 
     @Test
-    void tipoMysqlNonAncoraSupportato() {
-        assertThrows(UnsupportedOperationException.class,
-                () -> RepositoryFactory.create(configConTipo("mysql")));
+    void tipoDirectoryCreaRepositorySuCartella() {
+        RubricaRepository repo = RepositoryFactory.create(configConTipo("directory"));
+        assertTrue(repo instanceof DirectoryRubricaRepository);
+    }
+
+    @Test
+    void tipoMysqlCreaRepositorySuDatabase() {
+        RubricaRepository repo = RepositoryFactory.create(configConTipo("mysql"));
+        assertTrue(repo instanceof MysqlRubricaRepository);
+    }
+
+    @Test
+    void gliUtentiVannoSuFileSiaConFileSiaConDirectory() {
+        assertTrue(RepositoryFactory.createUtenti(configConTipo(null))
+                instanceof FileUtenteRepository);
+        assertTrue(RepositoryFactory.createUtenti(configConTipo("file"))
+                instanceof FileUtenteRepository);
+        assertTrue(RepositoryFactory.createUtenti(configConTipo("directory"))
+                instanceof FileUtenteRepository);
+    }
+
+    @Test
+    void utentiSuMysqlVannoSuDatabase() {
+        assertTrue(RepositoryFactory.createUtenti(configConTipo("mysql"))
+                instanceof MysqlUtenteRepository);
     }
 }

@@ -2,8 +2,23 @@
 # Copiare come "rubrica.properties" accanto a Rubrica.jar per personalizzare.
 # Se il file e' assente, valgono i default.
 
-# Backend di persistenza: file | mysql   (default: file)
-persistence.type=file
+# Backend di persistenza: file | directory | mysql   (default: file)
+#   file      -> un unico file di testo con tutti i contatti
+#   directory -> una cartella con un file per contatto (Nome-Cognome.txt)
+#   mysql     -> database MySQL via JDBC (contatti e utenti su tabelle)
+persistence.type=directory
 
 # Percorso del file dati per il backend "file"   (default: informazioni.txt)
 persistence.file.path=informazioni.txt
+
+# Percorso della cartella dati per il backend "directory"   (default: informazioni)
+persistence.directory.path=informazioni
+
+# Percorso del file degli utenti che accedono al software   (default: utenti.txt)
+# Vale sia con il backend "file" sia con "directory".
+persistence.utenti.path=utenti.txt
+
+# --- Parametri del backend "mysql" ---------------------------------------
+# Le credenziali del server MySQL NON stanno qui: sono nel file dedicato
+# credenziali_database.properties (vedi credenziali_database.properties.example),
+# cosi' che l'utente finale sostituisca solo quel file durante l'installazione.

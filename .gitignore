@@ -6,13 +6,13 @@ sources.txt
 
 # Dati runtime dell'applicazione
 informazioni.txt
+informazioni/
+utenti.txt
 
 # Backup e file locali
 *.original.md
 rubrica.properties
-
-# Script di inizializzazione git (meta, non fa parte del progetto)
-git_init_commits.ps1
+credenziali_database.properties
 
 # OS / IDE
 .DS_Store
