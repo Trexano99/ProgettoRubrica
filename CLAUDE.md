@@ -24,6 +24,9 @@ conversazionale che dialoga con l'utente e pilota dispositivi (sex toy) già esi
 ## Decisioni prese
 
 - L'esperienza per l'utente è un'**app mobile** (iOS/Android), senza passare da un prototipo web o desktop.
+- Mercato iniziale: **Italia, al massimo Unione Europea**.
+- Distribuzione **solo tramite App Store e Google Play**: niente versioni fuori dagli store. Per le
+  regole degli store il compagno AI nell'app non può essere esplicito.
 
 ## Stato
 

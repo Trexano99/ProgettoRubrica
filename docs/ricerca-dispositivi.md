@@ -4,6 +4,7 @@ Prima ricognizione tecnica per la card "Mappare i dispositivi integrabili e le l
 Domanda: esistono dispositivi che possiamo pilotare liberamente da una nostra app mobile, e con
 quali funzioni? Possiamo arrivare a venderli con il nostro marchio?
 
+Ambito: Italia e Unione Europea, distribuzione solo tramite App Store e Google Play.
 Aggiornata a: ottobre 2026.
 
 ## In breve
@@ -25,9 +26,10 @@ Aggiornata a: ottobre 2026.
 5. **Per vendere con il nostro marchio la strada realistica è l'OEM/ODM**, cioè produttori (in
    genere cinesi) che fanno dispositivi personalizzati con il nostro marchio, con un protocollo
    Bluetooth che controlliamo noi. Lovense non risulta offrire white label: solo affiliazione.
-6. **Vincolo importante per la scelta "app mobile":** App Store e Google Play non accettano app
-   con chat AI esplicita. Il controllo dei dispositivi è ammesso, il contenuto sessuale esplicito
-   generato dall'AI no. Va deciso prima di fissare lo stack (dettagli più sotto).
+6. **Vincolo degli store:** App Store e Google Play non accettano app con chat AI esplicita. Il
+   controllo dei dispositivi è ammesso, il contenuto sessuale esplicito generato dall'AI no. Dato
+   che distribuiamo solo tramite gli store, il compagno nell'app deve restare sensuale ed emotivo,
+   non esplicito (dettagli più sotto).
 
 ## Confronto delle opzioni
 
@@ -142,6 +144,10 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
 - **Limite**: i protocolli sono ricostruiti dalla community, non concessi dai produttori.
   Funzionano, ma un aggiornamento firmware può romperli (è già successo con The Handy firmware 4)
   e non c'è nessun accordo che ci tuteli.
+- **A cosa ci serve**: per un dispositivo nostro non serve, il protocollo lo controlliamo noi.
+  Serve solo se vogliamo che l'app funzioni anche con i dispositivi che gli utenti hanno già
+  (Satisfyer, We-Vibe, Svakom...), o per fare prototipi prima di avere il nostro hardware. Non dà
+  nessun diritto sui dispositivi degli altri marchi: non serve per rivenderli.
 
 ## Kiiroo e The Handy
 
@@ -161,6 +167,7 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
 
 | Strada | Cosa significa | Valutazione |
 |---|---|---|
+| Rivendere dispositivi di altri | Compriamo i dispositivi e li rivendiamo con il loro marchio | In generale si può: nell'UE il titolare del marchio non può opporsi alla rivendita di prodotti che ha già messo in commercio nello Spazio economico europeo (art. 15 del Regolamento UE 2017/1001). Non possiamo però togliere il loro marchio e mettere il nostro. Da verificare con Ramis |
 | Affiliazione Lovense | Fino al 20% di commissione sulle vendite, cookie di 120 giorni | Facile, ma il prodotto resta Lovense |
 | Accordo con un produttore (Lovense, Kiiroo, Svakom) | Co-branding o licenza | Nessuna offerta pubblica: va contattato il produttore. Con Lovense è improbabile, dato che fa già il suo AI Companion |
 | OEM/ODM a marchio nostro | Il produttore realizza dispositivi su nostra specifica; in alcuni casi fornisce app o SDK personalizzabili. Esempi trovati: WINYI, Evokomoribi (minimo 300 pezzi, certificazioni CE, RoHS, FDA) | **La strada coerente con l'obiettivo**: protocollo nostro, marchio nostro, margine nostro. Richiede investimento, controllo qualità e certificazioni |
@@ -187,23 +194,13 @@ dell'età, GDPR, consenso).
 - **Google Play**, testo originale: *"We don't allow apps that contain or promote sexual content or
   profanity, including pornography, or any content or services intended to be sexually
   gratifying."* Esiste anche una policy specifica sui contenuti generati da AI.
-- **Fuori dagli store**: su Android si può distribuire l'app direttamente (APK) o tramite store
-  alternativi. Nell'Unione Europea anche le app iOS possono essere distribuite da marketplace
-  alternativi o dal proprio sito. Passano comunque dalla "notarizzazione" di Apple, che secondo
-  Apple controlla sicurezza, privacy e funzionamento; non è chiaro se la regola 1.1.4 ne faccia
-  parte, va verificato.
-- **Precedente**: a dicembre 2020 Google Play ha sospeso Lovense Remote e Lovense ha dovuto
-  distribuire l'app per Android a mano, finché non è stata ripristinata (oggi è su Play come
-  "Mature 17+").
+- **Precedente**: a dicembre 2020 Google Play ha sospeso Lovense Remote, poi ripristinata (oggi
+  è su Play come "Mature 17+"). Anche un'app di solo controllo può essere sospesa.
 - **Le app di solo controllo dei dispositivi esistono su entrambi gli store** (Lovense Remote,
   Intiface Central).
-- **Conseguenza per noi**: un'app negli store può pilotare i dispositivi, ma la chat AI
-  esplicita non può stare dentro un'app distribuita dagli store ufficiali. Le strade sono tre:
-  - un compagno non esplicito (romantico ed emotivo) nell'app;
-  - un'architettura divisa: app nativa per il dispositivo e chat esplicita sul web;
-  - distribuzione fuori dagli store: su Android ovunque, su iPhone solo nell'Unione Europea.
-
-  È una decisione da prendere con Ramis (quadro legale) e con Riccardo (comportamento dell'AI).
+- **Conseguenza per noi**: abbiamo scelto di distribuire solo tramite gli store. L'app può
+  pilotare i dispositivi, ma il compagno AI deve restare sensuale ed emotivo, non esplicito.
+  Il confine esatto va definito con Riccardo (comportamento dell'AI) e Ramis (quadro legale).
 
 ## Raccomandazione
 
@@ -216,8 +213,7 @@ dell'età, GDPR, consenso).
    l'astrazione regga.
 4. **In parallelo, contatti esplorativi con 2-3 produttori OEM** per costi, ordine minimo, SDK e
    certificazioni: è la base per il prodotto con il nostro marchio.
-5. **Prima di scegliere lo stack**, chiudere la questione store (punto precedente) e leggere i
-   termini del programma sviluppatori Lovense.
+5. **Prima di scegliere lo stack**, leggere i termini del programma sviluppatori Lovense.
 
 ## Cose da verificare a mano
 
@@ -248,10 +244,11 @@ Da controllare sui portali ufficiali:
 - The Handy: [Handy SDK su npm](https://www.npmjs.com/package/@ohdoki/handy-sdk),
   [documentazione sviluppatori](https://intercom.help/ohdoki/en/articles/8260137-developer-documentation),
   [firmware 4](https://intercom.help/ohdoki/en/articles/9457599-what-s-new-in-firmware-4)
+- Rivendita: [Regolamento UE 2017/1001](https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32017R1001)
+  (art. 15, esaurimento del diritto di marchio)
 - OEM: [WINYI](https://www.szwinyi.com/app-controlled-toy/),
   [Evokomoribi](https://www.evokomoribi.com/products/app-controlled-products)
 - Store: [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/),
-  [Apple, app nell'UE e notarizzazione](https://developer.apple.com/support/dma-and-apps-in-the-eu/),
   [Google Play, policy sui contenuti AI](https://support.google.com/googleplay/android-developer/answer/14094294?hl=en),
   [Lovense Remote sospesa da Google Play (2020)](https://x.com/Lovense/status/1338857010003992578),
   [Google Play, contenuti inappropriati](https://support.google.com/googleplay/android-developer/answer/9878810?hl=en),
