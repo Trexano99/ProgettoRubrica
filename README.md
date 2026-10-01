@@ -16,7 +16,7 @@ esistenti sul mercato.
 
 - **Board Miro**: è il punto di coordinamento del team. Ognuno ha il proprio spazio di lavoro e i task
   si muovono su una board Kanban (Da fare → In corso → Da verificare → Completato).
-  La struttura è descritta in [`docs/miro-board.md`](docs/miro-board.md). Link alla board: _da aggiungere_.
+  La struttura è descritta in [`docs/miro-board.md`](docs/miro-board.md). Link alla board: [Cumme · Project Hub](https://miro.com/app/board/uXjVEfxGQIE=/).
 - **Questo repository** contiene il codice e la documentazione tecnica e di progetto.
 
 ## Stato

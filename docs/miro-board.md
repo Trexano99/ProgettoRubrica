@@ -4,7 +4,7 @@ Specifica della board Miro di Cumme. Serve sia come riferimento per il team sia 
 costruire la board: quando la board cambia, aggiorniamo anche questo file.
 
 - **Nome board**: `Cumme · Project Hub`
-- **Link**: _da aggiungere quando la board è creata_
+- **Link**: https://miro.com/app/board/uXjVEfxGQIE=/
 
 ## Layout generale
 
@@ -65,13 +65,18 @@ Quattro colonne, da sinistra a destra:
 
 ### Card
 
-Ogni task è una Miro Card con:
+La task board è una Kanban nativa di Miro (tabella in vista Kanban): ogni task è una riga con i
+campi:
 
-- **titolo**: verbo + oggetto (es. "Mappare le API dei dispositivi");
-- **assegnatario**: una sola persona;
-- **tag area**: `AI`, `Dev`, `Business` (stesso colore dello spazio personale);
-- **scadenza**, se esiste;
-- **descrizione**: cosa significa "finito" e i link utili.
+- **Title**: verbo + oggetto (es. "Mappare le API dei dispositivi");
+- **Description**: cosa significa "finito" e i link utili;
+- **Status**: la colonna (Da fare, In corso, Da verificare, Completato);
+- **Tags**: area, `AI`, `Dev` o `Business` (stesso colore dello spazio personale);
+- **Responsabile**: una sola persona (Riccardo Fidanza, Massimiliano Visconti, Ramis);
+- **Scadenza**, se esiste.
+
+Il responsabile è un campo a scelta e non il campo persona di Miro: quando tutti e tre sono membri
+della board si può passare al campo `Assignee`.
 
 ### Regole
 
@@ -84,7 +89,9 @@ Ogni task è una Miro Card con:
 
 | Task | Assegnatario | Tag |
 |---|---|---|
-| Definire il perimetro dell'MVP (cosa entra nella prima versione e cosa no) | Tutti, una card per persona | AI / Dev / Business |
+| Definire il perimetro dell'MVP (parte AI) | Riccardo | AI |
+| Definire il perimetro dell'MVP (parte sviluppo) | Massimiliano | Dev |
+| Definire il perimetro dell'MVP (parte business) | Ramis | Business |
 | Mappare i dispositivi esistenti integrabili e le loro API/SDK (es. Lovense, Buttplug.io/Intiface) | Massimiliano | Dev |
 | Proof of concept: pilotare un dispositivo da codice | Massimiliano | Dev |
 | Proposta di architettura (app, backend, collegamento chat ↔ dispositivo) | Massimiliano | Dev |
@@ -97,7 +104,9 @@ Ogni task è una Miro Card con:
 
 ## 4. Roadmap
 
-Striscia orizzontale con le fasi del progetto. Le date si aggiungono quando il team le concorda.
+Striscia orizzontale con le fasi del progetto, collegate da frecce. La fase attuale è evidenziata in
+scuro. Le date si aggiungono quando il team le concorda: a quel punto la striscia si può sostituire
+con una timeline nativa di Miro.
 
 | Fase | Obiettivo |
 |---|---|
