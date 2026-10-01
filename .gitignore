@@ -1,19 +1,10 @@
-# Artefatti di build
-build/
-Rubrica.jar
-*.class
-sources.txt
-
-# Dati runtime dell'applicazione
-informazioni.txt
-informazioni/
-utenti.txt
-
-# Backup e file locali
-*.original.md
-rubrica.properties
-credenziali_database.properties
+# Segreti e configurazione locale
+.env
+.env.*
+!.env.example
 
 # OS / IDE
 .DS_Store
 Thumbs.db
+.idea/
+.vscode/
