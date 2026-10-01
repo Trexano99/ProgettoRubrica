@@ -35,8 +35,7 @@ Riquadro in alto con:
 
 ## 2. Spazi personali
 
-Tre frame affiancati, uno per persona, tutti con la stessa struttura. Ognuno gestisce il proprio
-spazio liberamente.
+Tre frame affiancati, uno per persona. Ognuno gestisce il proprio spazio liberamente.
 
 | Frame | Persona | Area | Colore |
 |---|---|---|---|
@@ -44,13 +43,10 @@ spazio liberamente.
 | 2b | Massimiliano Visconti | Sviluppo | Blu |
 | 2c | Ramis | Business e marketing | Verde |
 
-Sezioni di ogni frame:
-
-1. **Chi sono e focus**: ruolo e obiettivi del periodo.
-2. **Su cosa sto lavorando**: lavoro in corso, aggiornato da chi lo fa.
-3. **Ricerche e fonti**: link, documenti, screenshot, appunti di ricerca.
-4. **Idee e note**: spunti ancora da valutare.
-5. **Domande aperte e blocchi**: cosa serve dagli altri per andare avanti.
+Ogni frame ha in alto il nome e l'area della persona e, sotto, un unico spazio libero
+**"Idee, lavori e scoperte"**: ci si aggiungono man mano idee, lavoro in corso, dati, fonti, link,
+immagini e novità, tenendo vicine le cose che parlano dello stesso argomento. Non ci sono sezioni
+fisse: lo spazio si organizza mentre si riempie.
 
 ## 3. Task board (Kanban)
 
