@@ -175,6 +175,27 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
 Joyhub e Galaku, i marchi con più modelli in Buttplug.io, sono un buon indizio del mercato OEM:
 molti modelli economici che condividono pochi protocolli Bluetooth.
 
+## Integrarsi con dispositivi di altri marchi
+
+La mia proposta è partire senza un dispositivo Cumme, collegando l'app a dispositivi già in
+commercio, e fare il dispositivo Cumme dopo, quando l'idea è validata. Non è un parere legale: va
+confermato con Ramis o con un avvocato.
+
+- **API e SDK ufficiali** (Lovense, The Handy, Kiiroo per partner): la strada più pulita, si
+  accettano i termini del produttore. Apple lo chiede esplicitamente (regola 5.2.2: *"If your app
+  uses, accesses, monetizes access to, or displays content from a third-party service, ensure that
+  you are specifically permitted to do so under the service's terms of use."*).
+- **Protocolli non ufficiali** (Satisfyer, We-Vibe, Svakom tramite Buttplug.io): nell'UE ricostruire
+  un software per l'interoperabilità è consentito a certe condizioni (direttiva 2009/24/CE, art. 6;
+  in Italia art. 64-quater della legge 633/1941) e le clausole contrattuali contrarie sono nulle
+  (art. 8). Il lavoro di ricostruzione l'ha già fatto Buttplug.io, che ha licenza BSD-3. Il
+  produttore però non dà garanzie né supporto. Precedente: Intiface Central è sugli store.
+- **Marchi**: si può scrivere "compatibile con Lovense" (uso referenziale, art. 14 del
+  Regolamento UE 2017/1001, se leale), ma non usare i loro loghi né far pensare a una partnership
+  (anche Apple, regola 5.2.1).
+- **Da leggere prima del lancio**: i termini dello SDK Lovense, che potrebbero limitare un'app
+  concorrente del loro AI Companion.
+
 ## Vincolo degli store per l'app mobile
 
 Una chat erotica si può costruire. Il limite descritto qui non è una legge, ma le regole di
@@ -225,6 +246,9 @@ Da controllare sui portali ufficiali:
 - termini d'uso commerciale del programma sviluppatori Lovense (costi, limiti, obblighi);
 - documentazione completa dell'SDK nativo Lovense per iOS e Android;
 - condizioni del programma partner Kiiroo e del Kiiroo Control SDK.
+- legalità della chat sensuale con AI in Italia: il Garante privacy ha multato Replika per 5
+  milioni di euro (2025) per mancanza di base legale e di verifica dell'età
+  ([Federprivacy](https://www.federprivacy.org/informazione/garante-privacy/garante-privacy-maxi-sanzione-da-5-milioni-di-euro-per-la-societa-che-gestisce-il-chatbot-replika)).
 
 ## Fonti
 
@@ -244,8 +268,9 @@ Da controllare sui portali ufficiali:
 - The Handy: [Handy SDK su npm](https://www.npmjs.com/package/@ohdoki/handy-sdk),
   [documentazione sviluppatori](https://intercom.help/ohdoki/en/articles/8260137-developer-documentation),
   [firmware 4](https://intercom.help/ohdoki/en/articles/9457599-what-s-new-in-firmware-4)
+- Interoperabilità: [Direttiva 2009/24/CE](https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=celex%3A32009L0024) (artt. 6 e 8)
 - Rivendita: [Regolamento UE 2017/1001](https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32017R1001)
-  (art. 15, esaurimento del diritto di marchio)
+  (art. 14 uso referenziale, art. 15 esaurimento del diritto di marchio)
 - OEM: [WINYI](https://www.szwinyi.com/app-controlled-toy/),
   [Evokomoribi](https://www.evokomoribi.com/products/app-controlled-products)
 - Store: [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/),
