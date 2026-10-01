@@ -170,19 +170,38 @@ molti modelli economici che condividono pochi protocolli Bluetooth.
 
 ## Vincolo degli store per l'app mobile
 
-- **App Store (regola 1.1.4)**: vieta il materiale "apertamente sessuale o pornografico".
-  L'aggiornamento di giugno 2026 chiede di tenere conto delle funzioni AI nella classificazione per
-  età. Le app AI che possono generare contenuti pornografici non sono ammesse. Flirt e contenuti
-  emotivi sono accettati.
-- **Google Play**: non ammette contenuti sessuali né app di AI generativa pensate principalmente
-  per la gratificazione sessuale.
+Una chat erotica si può costruire. Il limite descritto qui non è una legge, ma le regole di
+**distribuzione di App Store e Google Play** (restano comunque gli obblighi di legge: verifica
+dell'età, GDPR, consenso).
+
+- **App Store, regola 1.1.4**, testo originale: *"Overtly sexual or pornographic material, defined
+  as 'explicit descriptions or displays of sexual organs or activities intended to stimulate erotic
+  rather than aesthetic or emotional feelings.'"* Non c'è una regola scritta apposta per le chat AI
+  erotiche: vale la regola generale.
+- **App Store, regola 4.7** (chatbot e software non incluso nell'app): *"You are responsible for all
+  such software offered in your app, including ensuring that such software complies with these
+  Guidelines"*. Quindi anche le risposte della chat AI devono rispettare la 1.1.4.
+- **App Store, regola 1.2**: tollera contenuti per adulti solo se "incidentali", provenienti da un
+  servizio web, nascosti di default e attivabili dall'utente sul sito. Non copre un'app il cui
+  scopo principale è la chat erotica.
+- **Google Play**, testo originale: *"We don't allow apps that contain or promote sexual content or
+  profanity, including pornography, or any content or services intended to be sexually
+  gratifying."* Esiste anche una policy specifica sui contenuti generati da AI.
+- **Fuori dagli store**: su Android si può distribuire l'app direttamente (APK) o tramite store
+  alternativi. Nell'Unione Europea anche le app iOS possono essere distribuite da marketplace
+  alternativi o dal proprio sito. Passano comunque dalla "notarizzazione" di Apple, che secondo
+  Apple controlla sicurezza, privacy e funzionamento; non è chiaro se la regola 1.1.4 ne faccia
+  parte, va verificato.
+- **Precedente**: a dicembre 2020 Google Play ha sospeso Lovense Remote e Lovense ha dovuto
+  distribuire l'app per Android a mano, finché non è stata ripristinata (oggi è su Play come
+  "Mature 17+").
 - **Le app di solo controllo dei dispositivi esistono su entrambi gli store** (Lovense Remote,
   Intiface Central).
-- **Conseguenza per noi**: un'app negli store può pilotare i dispositivi, ma la chat AI esplicita
-  quasi certamente non può stare dentro l'app. Le strade sono tre:
+- **Conseguenza per noi**: un'app negli store può pilotare i dispositivi, ma la chat AI
+  esplicita non può stare dentro un'app distribuita dagli store ufficiali. Le strade sono tre:
   - un compagno non esplicito (romantico ed emotivo) nell'app;
   - un'architettura divisa: app nativa per il dispositivo e chat esplicita sul web;
-  - su Android, distribuzione fuori da Google Play.
+  - distribuzione fuori dagli store: su Android ovunque, su iPhone solo nell'Unione Europea.
 
   È una decisione da prendere con Ramis (quadro legale) e con Riccardo (comportamento dell'AI).
 
@@ -232,5 +251,8 @@ Da controllare sui portali ufficiali:
 - OEM: [WINYI](https://www.szwinyi.com/app-controlled-toy/),
   [Evokomoribi](https://www.evokomoribi.com/products/app-controlled-products)
 - Store: [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/),
+  [Apple, app nell'UE e notarizzazione](https://developer.apple.com/support/dma-and-apps-in-the-eu/),
+  [Google Play, policy sui contenuti AI](https://support.google.com/googleplay/android-developer/answer/14094294?hl=en),
+  [Lovense Remote sospesa da Google Play (2020)](https://x.com/Lovense/status/1338857010003992578),
   [Google Play, contenuti inappropriati](https://support.google.com/googleplay/android-developer/answer/9878810?hl=en),
   [Indie Hackers sulle app AI companion](https://www.indiehackers.com/post/ai-lover-apps-made-162-8m-in-six-months-the-web-only-ones-arent-even-counted-28fd172f13)
