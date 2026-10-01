@@ -21,7 +21,10 @@ conversazionale che dialoga con l'utente e pilota dispositivi (sex toy) già esi
   codice, logging, analytics e hosting deve partire da qui.
 - Il servizio è solo per adulti: serve una verifica dell'età.
 
-## Decisioni prese
+## Proposte di Massimiliano (non ancora condivise con il team)
+
+Sono scelte di Massimiliano, non decisioni del team: nei testi per gli altri vanno presentate in
+prima persona singolare ("ho trovato", "propongo"), mai come decisioni collettive.
 
 - L'esperienza per l'utente è un'**app mobile** (iOS/Android), senza passare da un prototipo web o desktop.
 - Mercato iniziale: **Italia, al massimo Unione Europea**.

@@ -1,46 +1,46 @@
-# Ricerca: dispositivi controllabili da una nostra app
+# Ricerca: dispositivi controllabili dall'app di Cumme
 
-Prima ricognizione tecnica per la card "Mappare i dispositivi integrabili e le loro API/SDK".
-Domanda: esistono dispositivi che possiamo pilotare liberamente da una nostra app mobile, e con
-quali funzioni? Possiamo arrivare a venderli con il nostro marchio?
+Prima ricognizione tecnica di Massimiliano Visconti per la card "Mappare i dispositivi integrabili e
+le loro API/SDK". Domanda: esistono dispositivi pilotabili liberamente dall'app mobile di Cumme, e
+con quali funzioni? Si possono vendere con il marchio Cumme?
 
-Ambito: Italia e Unione Europea, distribuzione solo tramite App Store e Google Play.
+Ambito che ho scelto: Italia e Unione Europea, distribuzione solo tramite App Store e Google Play.
 Aggiornata a: ottobre 2026.
 
 ## In breve
 
 1. **Tecnicamente è fattibile.** Ci sono almeno due strade solide per pilotare dispositivi da
-   un'app mobile nostra: l'**SDK nativo Lovense** (ufficiale, iOS e Android, Bluetooth diretto) e
+   un'app mobile di Cumme: l'**SDK nativo Lovense** (ufficiale, iOS e Android, Bluetooth diretto) e
    la libreria open source **Buttplug.io** (licenza BSD-3, 873 configurazioni di dispositivi di
    oltre 100 marchi).
 2. **Lovense è il candidato migliore per partire.** Ha un programma sviluppatori gratuito e
    documentato, le funzioni più ricche (vibrazione, rotazione, spinta, aspirazione, profondità,
    oscillazione) e circa 36 modelli Bluetooth.
 3. **Rischio strategico su Lovense.** A novembre 2025 Lovense ha lanciato il proprio AI Companion
-   dentro la sua app e a gennaio 2026 una bambola AI. È un concorrente diretto che controlla il
-   nostro accesso ai suoi dispositivi: non conviene dipendere solo da lui.
+   dentro la sua app e a gennaio 2026 una bambola AI. È un concorrente diretto che controlla
+   l'accesso ai suoi dispositivi: secondo me non conviene dipendere solo da lui.
 4. **Gli altri grandi marchi non hanno SDK pubblici** (We-Vibe, Satisfyer, Svakom, Lelo, Magic
    Motion). Si possono pilotare solo con i protocolli ricostruiti da Buttplug.io, senza garanzie
    del produttore. Fanno eccezione Kiiroo (API per partner, su richiesta) e The Handy (API
    pubblica, ma per un solo tipo di prodotto).
-5. **Per vendere con il nostro marchio la strada realistica è l'OEM/ODM**, cioè produttori (in
-   genere cinesi) che fanno dispositivi personalizzati con il nostro marchio, con un protocollo
-   Bluetooth che controlliamo noi. Lovense non risulta offrire white label: solo affiliazione.
+5. **Per vendere con il marchio Cumme la strada realistica è l'OEM/ODM**, cioè produttori (in
+   genere cinesi) che fanno dispositivi personalizzati con il marchio del cliente, con un protocollo
+   Bluetooth controllato da Cumme. Lovense non risulta offrire white label: solo affiliazione.
 6. **Vincolo degli store:** App Store e Google Play non accettano app con chat AI esplicita. Il
    controllo dei dispositivi è ammesso, il contenuto sessuale esplicito generato dall'AI no. Dato
-   che distribuiamo solo tramite gli store, il compagno nell'app deve restare sensuale ed emotivo,
-   non esplicito (dettagli più sotto).
+   che propongo di distribuire solo tramite gli store, il compagno nell'app deve restare sensuale
+   ed emotivo, non esplicito (dettagli più sotto).
 
 ## Confronto delle opzioni
 
-| Opzione | Come si accede | Dispositivi | Funzioni | Da una nostra app mobile | Accesso | Rischi principali |
+| Opzione | Come si accede | Dispositivi | Funzioni | Dall'app di Cumme | Accesso | Rischi principali |
 |---|---|---|---|---|---|---|
 | **Lovense SDK nativo** | SDK iOS (13+) e Android (5.1+), Bluetooth diretto | ~36 modelli Lovense | Tutte quelle Lovense (vedi sotto) | Sì, senza l'app Lovense | Account sviluppatore gratuito + token | Lovense è anche concorrente; termini commerciali da leggere |
 | **Lovense Standard/Socket API** | HTTP/WebSocket verso l'app Lovense Remote dell'utente (rete locale o cloud) | Tutti i Lovense | Come sopra | Solo se l'utente ha anche Lovense Remote | Come sopra | Due app per l'utente, latenza del cloud |
 | **Buttplug.io** | Libreria Rust (BSD-3), usabile su iOS e Android | 873 configurazioni, 149 protocolli | Vibrazione, rotazione, oscillazione, posizione, costrizione, batteria | Sì, va integrata (es. Flutter + Rust) | Libero, open source | Protocolli ricostruiti: un aggiornamento firmware può romperli; nessun supporto dei produttori |
 | **Kiiroo (FeelApps)** | API REST per partner; il comando passa dall'app FeelConnect | Kiiroo (es. Pearl, Onyx, Keon) | Intensità 0-100 e durata | Solo tramite FeelConnect | Chiave partner rilasciata da Kiiroo | Pensato per cam e mance; serve l'approvazione |
 | **The Handy** | API cloud v2/v3 via Wi-Fi (chiave di connessione) + modalità Bluetooth | The Handy, Handy 2 (masturbatori lineari) | Posizione, velocità, script sincronizzati | Sì, via cloud | Documentazione pubblica | Una sola categoria di prodotto; con il firmware 4 alcune app di terzi non funzionano più |
-| **OEM/ODM a marchio nostro** | Protocollo Bluetooth fornito dal produttore o definito da noi | Quelli che ordiniamo | Quelle che specifichiamo | Sì, controllo totale | Ordine minimo (es. 300 pezzi) | Costi, certificazioni (CE, RoHS, radio), qualità del firmware, assistenza |
+| **OEM/ODM a marchio Cumme** | Protocollo Bluetooth fornito dal produttore o definito da Cumme | Quelli ordinati | Quelle specificate | Sì, controllo totale | Ordine minimo (es. 300 pezzi) | Costi, certificazioni (CE, RoHS, radio), qualità del firmware, assistenza |
 | **Hardware aperto** (OSR2/SR6, OSSM) | Protocollo TCode via seriale | Fai da te | Posizione su più assi | Per prototipi | Libero | Non è un prodotto per il consumatore |
 
 ## Lovense nel dettaglio
@@ -48,11 +48,11 @@ Aggiornata a: ottobre 2026.
 ### Soluzioni per sviluppatori
 
 - **SDK nativi**: iOS 13+, Android 5.1+, Windows. L'app si collega al dispositivo via Bluetooth,
-  senza passare dall'app Lovense. È la strada che serve a noi.
+  senza passare dall'app Lovense. È la strada adatta all'app di Cumme.
 - **Standard API**: comandi HTTP all'app Lovense Remote dell'utente, in rete locale (porte 20011
   HTTP e 30011 HTTPS; 34567 per Lovense Connect) o tramite il cloud Lovense. L'abbinamento avviene
-  con un codice QR: lo generiamo con `POST https://api.lovense.com/api/lan/getQrCode`, l'utente lo
-  scansiona con Lovense Remote e Lovense chiama il nostro callback.
+  con un codice QR: si genera con `POST https://api.lovense.com/api/lan/getQrCode`, l'utente lo
+  scansiona con Lovense Remote e Lovense chiama il callback dell'app.
 - **Socket API** (WebSocket), **JS SDK** (web) e **Toy Events API** (eventi in tempo reale dal
   dispositivo, solo con Lovense Remote).
 - **Accesso**: account sviluppatore gratuito e developer token. I termini d'uso commerciale non
@@ -101,8 +101,8 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
 
 ### Limiti
 
-- Un dispositivo Bluetooth accetta in genere **una sola app collegata alla volta**: se usa la
-  nostra app, l'utente non può usare contemporaneamente Lovense Remote.
+- Un dispositivo Bluetooth accetta in genere **una sola app collegata alla volta**: se usa
+  l'app di Cumme, l'utente non può usare contemporaneamente Lovense Remote.
 - Lovense non pubblica il protocollo Bluetooth come contratto stabile: la via ufficiale è l'SDK.
 
 ## Buttplug.io nel dettaglio
@@ -111,8 +111,8 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
   centinaia di dispositivi. Funziona su Windows, macOS, Linux, Android, iOS e nel browser (WASM).
 - **App di riferimento**: Intiface Central (Flutter + Rust) è pubblicata su App Store e Google
   Play. Dimostra che la libreria si può integrare in un'app mobile e che uno store accetta un'app
-  di solo controllo dei dispositivi. Intiface Central è GPL 3 o commerciale, ma noi useremmo
-  direttamente la libreria, che è BSD-3.
+  di solo controllo dei dispositivi. Intiface Central è GPL 3 o commerciale, ma l'app di Cumme
+  userebbe direttamente la libreria, che è BSD-3.
 - **Copertura** (configurazione dispositivi v5.57): 873 configurazioni, 149 protocolli, 139 dei
   quali via Bluetooth LE.
 
@@ -143,19 +143,19 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
 
 - **Limite**: i protocolli sono ricostruiti dalla community, non concessi dai produttori.
   Funzionano, ma un aggiornamento firmware può romperli (è già successo con The Handy firmware 4)
-  e non c'è nessun accordo che ci tuteli.
-- **A cosa ci serve**: per un dispositivo nostro non serve, il protocollo lo controlliamo noi.
-  Serve solo se vogliamo che l'app funzioni anche con i dispositivi che gli utenti hanno già
-  (Satisfyer, We-Vibe, Svakom...), o per fare prototipi prima di avere il nostro hardware. Non dà
+  e non c'è nessun accordo che tuteli chi li usa.
+- **A cosa serve a Cumme**: per un dispositivo a marchio Cumme non serve, il protocollo lo
+  controlla Cumme. Serve solo se l'app deve funzionare anche con i dispositivi che gli utenti hanno
+  già (Satisfyer, We-Vibe, Svakom...), o per fare prototipi prima di avere l'hardware Cumme. Non dà
   nessun diritto sui dispositivi degli altri marchi: non serve per rivenderli.
 
 ## Kiiroo e The Handy
 
-- **Kiiroo (FeelApps)**: serve una *Partner Key* rilasciata da Kiiroo. Con quella generiamo un
+- **Kiiroo (FeelApps)**: serve una *Partner Key* rilasciata da Kiiroo. Con quella si genera un
   token valido 24 ore, poi l'utente scansiona un QR nell'app FeelConnect. Endpoint principali:
   stato utente, autorizzazione e `POST /api/v1/user/<id>/device_speed` con intensità 0-100 e
-  durata in secondi. Il comando passa sempre dall'app FeelConnect: non è Bluetooth diretto dalla
-  nostra app. Esiste anche un "Kiiroo Control SDK", ma la documentazione non era raggiungibile da
+  durata in secondi. Il comando passa sempre dall'app FeelConnect: non è Bluetooth diretto
+  dall'app di Cumme. Esiste anche un "Kiiroo Control SDK", ma la documentazione non era raggiungibile da
   qui.
 - **The Handy** (masturbatore lineare): API REST pubblica v2 e v3, via Wi-Fi e cloud, con una
   chiave di connessione per dispositivo. Ha diverse modalità: HAMP (movimento alternato
@@ -163,14 +163,14 @@ Spinel, Sex Machine, Mini Sex Machine, più due modelli Loveai (Dolp, Fizz).
   tempo). La v3 con il firmware 4 aggiunge notifiche in tempo reale. Handy 2 funziona solo con il
   firmware 4. SDK in JavaScript e Java.
 
-## Vendere con il nostro marchio
+## Vendere con il marchio Cumme
 
 | Strada | Cosa significa | Valutazione |
 |---|---|---|
-| Rivendere dispositivi di altri | Compriamo i dispositivi e li rivendiamo con il loro marchio | In generale si può: nell'UE il titolare del marchio non può opporsi alla rivendita di prodotti che ha già messo in commercio nello Spazio economico europeo (art. 15 del Regolamento UE 2017/1001). Non possiamo però togliere il loro marchio e mettere il nostro. Da verificare con Ramis |
+| Rivendere dispositivi di altri | Comprare i dispositivi e rivenderli con il loro marchio | In generale si può: nell'UE il titolare del marchio non può opporsi alla rivendita di prodotti che ha già messo in commercio nello Spazio economico europeo (art. 15 del Regolamento UE 2017/1001). Non si può però togliere il loro marchio e mettere quello di Cumme. Da verificare con Ramis |
 | Affiliazione Lovense | Fino al 20% di commissione sulle vendite, cookie di 120 giorni | Facile, ma il prodotto resta Lovense |
 | Accordo con un produttore (Lovense, Kiiroo, Svakom) | Co-branding o licenza | Nessuna offerta pubblica: va contattato il produttore. Con Lovense è improbabile, dato che fa già il suo AI Companion |
-| OEM/ODM a marchio nostro | Il produttore realizza dispositivi su nostra specifica; in alcuni casi fornisce app o SDK personalizzabili. Esempi trovati: WINYI, Evokomoribi (minimo 300 pezzi, certificazioni CE, RoHS, FDA) | **La strada coerente con l'obiettivo**: protocollo nostro, marchio nostro, margine nostro. Richiede investimento, controllo qualità e certificazioni |
+| OEM/ODM a marchio Cumme | Il produttore realizza dispositivi su specifica di Cumme; in alcuni casi fornisce app o SDK personalizzabili. Esempi trovati: WINYI, Evokomoribi (minimo 300 pezzi, certificazioni CE, RoHS, FDA) | **La strada coerente con l'obiettivo**: protocollo, marchio e margine di Cumme. Richiede investimento, controllo qualità e certificazioni |
 
 Joyhub e Galaku, i marchi con più modelli in Buttplug.io, sono un buon indizio del mercato OEM:
 molti modelli economici che condividono pochi protocolli Bluetooth.
@@ -198,21 +198,21 @@ dell'età, GDPR, consenso).
   è su Play come "Mature 17+"). Anche un'app di solo controllo può essere sospesa.
 - **Le app di solo controllo dei dispositivi esistono su entrambi gli store** (Lovense Remote,
   Intiface Central).
-- **Conseguenza per noi**: abbiamo scelto di distribuire solo tramite gli store. L'app può
+- **Conseguenza per Cumme**: propongo di distribuire solo tramite gli store. L'app può
   pilotare i dispositivi, ma il compagno AI deve restare sensuale ed emotivo, non esplicito.
   Il confine esatto va definito con Riccardo (comportamento dell'AI) e Ramis (quadro legale).
 
-## Raccomandazione
+## La mia raccomandazione
 
 1. **Prototipo con Lovense SDK nativo** e due dispositivi: un vibratore semplice (es. Lush) e uno
    multifunzione (es. Nora o Solace). È la strada ufficiale e con più funzioni.
-2. **Fin dal primo giorno, un livello di astrazione nostro** tra la chat AI e il dispositivo:
-   comandi come intensità 0-1, ritmo, schema, durata, tradotti poi per ogni produttore. Ci rende
+2. **Fin dal primo giorno, un livello di astrazione proprio** tra la chat AI e il dispositivo:
+   comandi come intensità 0-1, ritmo, schema, durata, tradotti poi per ogni produttore. Rende
    indipendenti da Lovense e si aggancia al lavoro di Riccardo sul formato dei comandi.
 3. **Buttplug.io come secondo adattatore**, per coprire gli altri marchi e verificare che
    l'astrazione regga.
 4. **In parallelo, contatti esplorativi con 2-3 produttori OEM** per costi, ordine minimo, SDK e
-   certificazioni: è la base per il prodotto con il nostro marchio.
+   certificazioni: è la base per il prodotto con il marchio Cumme.
 5. **Prima di scegliere lo stack**, leggere i termini del programma sviluppatori Lovense.
 
 ## Cose da verificare a mano
