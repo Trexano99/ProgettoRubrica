@@ -21,6 +21,11 @@ conversazionale che dialoga con l'utente e pilota dispositivi (sex toy) già esi
   codice, logging, analytics e hosting deve partire da qui.
 - Il servizio è solo per adulti: serve una verifica dell'età.
 
+## Decisioni prese
+
+- L'esperienza per l'utente è un'**app mobile** (iOS/Android), senza passare da un prototipo web o desktop.
+
 ## Stato
 
-Fase 0: impostazione. Stack tecnologico non ancora scelto.
+Fase 0: impostazione. Stack tecnologico non ancora scelto. Prima ricerca sui dispositivi
+controllabili in `docs/ricerca-dispositivi.md`.
